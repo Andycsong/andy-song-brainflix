@@ -1,0 +1,88 @@
+@use 'variables' as *;
+@use 'fonts' as *;
+
+@mixin mobile {
+    @media screen and (min-width:$mobile-width) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width:$tablet-width) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop-width) {
+        @content;
+    }
+}
+
+
+@mixin mobile-text-header{
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin mobile-text-subheader{
+    font-size: 14px;
+    line-height: 22px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin mobile-text-paragraph {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin mobile-labels {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: 'AvenirNextLTPro';
+}
+
+
+@mixin desktab-text-hero {
+    font-size: 60px;
+    line-height: 68px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin desktab-text-h1-header {
+    font-size: 36px;
+    line-height: 44px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin desktab-text-h2-header {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin desktab-text-subheader {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin desktab-text-paracomment {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin desktab-text-listcontact {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'AvenirNextLTPro';
+}
+
+@mixin desktab-text-labels {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: 'AvenirNextLTPro';
+}

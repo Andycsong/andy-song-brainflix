@@ -1,0 +1,10 @@
+@use './partials/fonts' as*;
+@use '../src/components/Header/Header' as*; 
+@use './partials/_mixins' as*;
+@use './partials/_variables' as*;
+@use './partials/_globals' as*;
+
+html{
+    font-family: 'AvenirNextLTPro';
+}
+

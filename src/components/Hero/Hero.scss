@@ -1,0 +1,29 @@
+@use '../../partials/globals' as*;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+@use '../../partials/fonts' as*;
+
+
+.hero{
+
+    &__title{
+        @include mobile-text-header;
+        font-weight: 700;
+        margin: 0;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+
+    &-container{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    &__channel-container{
+        display: flex;
+    }
+
+    &__channel{
+        
+    }
+}
