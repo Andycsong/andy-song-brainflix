@@ -5,6 +5,11 @@
 
 
 .hero{
+    margin: 0;
+
+    &__video{
+        height: 183px;
+    }
 
     &__title{
         @include mobile-text-header;
@@ -24,6 +29,42 @@
     }
 
     &__channel{
-        
+        @include mobile-text-subheader;
+        font-weight: 600;
+        padding-right: 0.5rem;
+        margin: 0;
+    }
+
+    &__timestamp{
+        @include mobile-text-subheader;
+        color: $Silver;
+    }
+
+    &__view-container{
+        display: flex;
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+        @include mobile-text-subheader;
+    }
+    
+    &__view-icon{
+        padding-right: 0.5rem;
+    }
+
+    &__like-icon{
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+    }
+
+    &__divider{
+        margin: 0;
+        color: $Mercury;
+    }
+
+    &__description{
+        @include mobile-text-paragraph;
+        padding-top: 1.5rem;
+        padding-bottom: 2.5rem;
+        margin: 0;
     }
 }
