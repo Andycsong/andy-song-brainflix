@@ -16,7 +16,7 @@ function VideoList({ Videos, videoSelector }) {
                     >
                         <img className="vidList__img" src={vid.image}></img>
                         <div className="vidList__info-container">
-                            <h3 className="vidList__title">{vid.title}...</h3>
+                            <h3 className="vidList__title">{vid.title}</h3>
                             <div>{vid.channel}</div>
                         </div>
                     </div>
