@@ -41,10 +41,11 @@
     }
 
     &__view-container{
+        @include mobile-text-subheader;
         display: flex;
         padding-top: 2rem;
         padding-bottom: 1.5rem;
-        @include mobile-text-subheader;
+        border-bottom: 1px solid $Mercury;
     }
     
     &__view-icon{

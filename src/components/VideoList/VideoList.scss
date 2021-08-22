@@ -1,0 +1,36 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+@use '../../partials/fonts' as*;
+
+.vidList{
+    padding-top: 40px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &__subheader{
+        color:$Silver;
+        padding-bottom: 40px;
+    }
+
+    &__container{
+        display: flex;
+        padding-bottom: 1.5rem;
+    }
+
+    &__img{
+        width: 120px;
+        height: 70px;
+        object-fit: cover;
+        object-position: center;
+        
+    }
+
+    &__info-container{
+        flex: 1;
+        padding-left: 1rem;
+    }
+
+    &__title{
+        @include mobile-text-subheader;
+    }
+}

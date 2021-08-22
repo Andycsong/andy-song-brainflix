@@ -5,6 +5,7 @@ import Videos from "./Data/videos.json"
 import Hero from './components/Hero/Hero';
 import Comments from './components/Comments/Comments'
 import { Component } from 'react';
+import VideoList from './components/VideoList/VideoList';
 
 class App extends Component {
   state = {
@@ -13,15 +14,25 @@ class App extends Component {
     selectedVideo: VideoDetails[0],
   };
 
+  videoSelector = (id) => {
+    let newVid = this.state.VideoDetails.find((vid) => id === vid.id);
 
+
+    this.setState({
+      selectedVideo: newVid,
+    });
+  };
 
   render() {
+    const filteredVids = this.state.Videos.filter((vid) => vid.id !== this.state.selectedVideo.id);
+
 
     return (
       <div className="App">
         <Header />
         <Hero hero={this.state.selectedVideo} />
-        <Comments comments={this.state.selectedVideo} />
+        <Comments commentsPosted={this.state.selectedVideo} />
+        <VideoList Videos={filteredVids} videoSelector={this.videoSelector} />
       </div>
     );
 

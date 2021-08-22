@@ -1,11 +1,12 @@
 import AvatarImage from '../../assets/Images/Mohan-muruge.jpg'
+import React from 'react'
+import FormatDate from '../../utils/FormatDate'
 import './Comments.scss'
 
 
 const Comments = (props) => {
-    const selectedVideo = props.comments;
-
-
+    const selectedVideo = props.commentsPosted;
+    console.log(selectedVideo);
     return (
         <section>
             <article className='comments'>
@@ -25,17 +26,22 @@ const Comments = (props) => {
                         <button type='submit' form='commentsForm' className='comments__submit'>COMMENT</button>
                     </form>
                 </div>
-                <br className='comments__divider'></br>
                 <article className='display-comments'>
-                    <div className='display-comments__card'>
-                        <div className='display-comments__image'></div>
-                        <div className='display-comments-container'>
-                            <h3 className='display-comments__name'>{selectedVideo.comments}</h3>
+                    {selectedVideo.comments.map(comment => (
+                        <div className='display-comments__card'>
+                            <div className='display-comments__image'></div>
+                            <div className='display-comments__info-container'>
+                                <div className='display-comments__container'>
+                                    <h3 className="display-comments__name">{comment.name}</h3>
+                                    <div className='display-comments__date'>{FormatDate(comment.timestamp)}</div>
+                                </div>
+                                <p className='display-comments__comment'>{comment.comment}</p>
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </article>
             </article >
-        </section>
+        </section >
     );
 }
 
