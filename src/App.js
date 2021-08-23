@@ -19,7 +19,6 @@ class App extends Component {
     const newVid = this.state.VideoDetails.find(
       (vid) => vid.id === id);
 
-
     this.setState({
       selectedVideo: newVid,
     });
@@ -28,7 +27,6 @@ class App extends Component {
   render() {
     const filteredVids = this.state.Videos.filter(
       (vid) => vid.id !== this.state.selectedVideo.id);
-
 
     return (
       <div className="App">
@@ -45,7 +43,6 @@ class App extends Component {
         </div>
       </div>
     );
-
   }
 }
 

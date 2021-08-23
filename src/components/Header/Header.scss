@@ -31,8 +31,6 @@
     @include desktop{
         width: 222.3px;
     }
-    
-
 }
 
 .header{
@@ -47,6 +45,7 @@
     }
 
     @include desktop{
+        display: flex;
         padding-left: 0;
         padding-right: 0;
     }
@@ -62,8 +61,8 @@
         @include desktop{
             margin-left: auto;
             margin-right: auto;
-            width: 80%;
             justify-content: space-between;
+            width: 80%;
         }
     }
 
@@ -72,13 +71,10 @@
         justify-content: center;
         padding-top: 12px;
         padding-bottom: 12px;
-
     }
-
 
     &-right-container{
        
-
         @include tablet{
             display: flex;
             flex-direction: row;
@@ -87,9 +83,7 @@
 
         @include desktop{
             padding-left: 509px;
-            flex: 0 0 100%;
         }
-
     }
 
     &__avatar-button{
@@ -102,11 +96,9 @@
             padding-top: 0;
             padding-bottom:0;
             padding-left: 1.5rem;
-        }
-     
+        }     
   }
-        
-    
+            
     &__button{
         @include mobile-labels;
         width: 80%;
@@ -117,9 +109,10 @@
         border-radius: 4px;
         background-image: url(../../assets/Icons/Icon-upload.svg);
         background-repeat: no-repeat;
-        background-position:  30% 40%; 
+        background-position:30% 40%; 
 
         @include tablet{
+            font-weight: 600;
             width: 100%;
             padding-left: 2.5rem;
             padding-right: 1.5rem;

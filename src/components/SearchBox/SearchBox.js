@@ -1,11 +1,10 @@
 import SearchImage from '../../assets/Icons/Icon-search.svg'
 
-const SearchBox = ({ placeholder, handleChange }) => (
+const SearchBox = ({ placeholder }) => (
     <input
         className='search-box'
         type='search'
         placeholder={placeholder}
-        onChange={handleChange}
         img={SearchImage}
     />
 );

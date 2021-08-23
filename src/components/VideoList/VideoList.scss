@@ -17,7 +17,9 @@
         color:$Silver;
         padding-bottom: 40px;
 
-        @include desktab-text-subheader;
+        @include tablet{
+            @include desktab-text-subheader;
+        }
     }
 
     &__container{
