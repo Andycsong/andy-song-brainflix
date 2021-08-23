@@ -6,10 +6,27 @@
     padding-left: 1rem;
     padding-right: 1rem;
 
+    @include tablet{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    @include desktop{
+        margin-left: auto;
+        padding: 0;
+        width: 85%;
+    }
+
     &__title{
         margin: 0;
         @include mobile-text-subheader;
         font-weight: 600;
+
+        @include tablet{
+            @include desktab-text-subheader;
+            padding-bottom: 2rem;
+        }
+        
     }
 
     &__avatar{
@@ -17,57 +34,162 @@
         height: 48px;
         width: 48px;
         border-radius: 50%;
+        object-fit: cover;
+        object-position: left;
     }
 
     &__form-container{
         padding-top: 2rem;
         display: flex;
+        flex: 0 0 100%;
         padding-bottom: 1.5rem;
         border-bottom: 1px solid $Mercury;
+
+        @include tablet{
+            padding-top: 0;
+        }
+
+        
+        
     }
 
     &__form{
+        flex: 1;
         padding-left: 0.5rem;
+
+        @include tablet{
+            padding-left: 1rem;
+        }
+    }
+
+    &__data-container{
+        display: flex;
+        flex-direction: column;
+
+        @include tablet{
+            flex-direction: row;
+        }
     }
 
     &__form-name{
         @include mobile-text-subheader;
         font-weight: 600;
         color: $Silver;
+
+        @include tablet{
+            @include desktab-text-paracomment;
+        }
     }
 
     &__form-input{
+        @include mobile-labels;
         width: 100%;
         margin-bottom: 1rem;
+        border-radius: 4px;
+        resize: none;
+        background-color: $Alabaster;
+        padding-left: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+        padding-right: 3rem;
+
+        @include tablet{
+            margin: 0;
+            padding-left: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 1rem;
+            width: 440px;
+            height: 48px;
+            margin-right: 1rem;
+        }
+
+        @include desktop{
+            width: 436px;
+        }
+
+        &::placeholder{
+            @include mobile-text-paragraph;
+            color: $Black;
+
+            @include tablet{
+                @include desktab-text-paracomment;
+            }
+        }
+
+        &:focus{
+        outline:none;
+        border: 2px solid $Instock-blue;
+
+
+        }
     }
 
     &__submit{
+        @include mobile-text-paragraph;
         width: 100%;
         height: 48px;
         color: white;
         border: white;
         background-color: $Instock-blue;
         border-radius: 4px;
+
+        @include tablet{
+            @include desktab-text-paracomment;
+            width: 160px;
+            margin-right: 40px;
+        }
+
+        @include desktop{
+            margin-right: 0;
+        }
     }
 
 }
 
 .display-comments{
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include tablet{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    @include desktop {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 5rem;
+    }
 
     &__card{
+        padding-left: 0;
+        padding-right: 0;
         padding-top: 2rem;
         padding-bottom: 1.5rem;
         display: flex;
         flex-direction: row;
         border-bottom: 1px solid $Mercury;
+
+        @include tablet{
+        }
+
+        @include desktop{
+            margin-left: auto;
+            padding: 0;
+            width: 85%;
+        }
     }
     
     &__image {
-    height:48px;
-    width: 48px;
+    height:40px;
+    width: 40px;
     border-radius: 50%;
     background-color: $Mercury;
     margin: 0;
+
+        @include tablet{
+            margin-top: 1rem;
+        }
     }
     &__info-container{
         flex: 1;
@@ -78,6 +200,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        @include tablet{
+            padding-top: 1rem;
+            justify-content: flex-start;
+            align-items: center;
+        }
     }
 
 
@@ -85,15 +213,32 @@
     &__name{
         @include mobile-text-subheader;
         margin: 0;
+        font-weight: 600;
+
+        @include tablet{
+        @include desktab-text-subheader;
+            padding-right: 0.5rem;
+        }
     }
 
     &__date{
+        @include mobile-text-paragraph;
         color: $Silver;
+
+        @include tablet{
+            @include desktab-text-paracomment;
+        }
     }
 
     &__comment{
         @include mobile-text-paragraph;
-        padding-top: 1rem;
+        padding-top: 0.5rem;
+
+        @include tablet{
+            width: 95%;
+            @include desktab-text-paracomment;
+            padding-bottom: 24px;
+        }
     }
 
 

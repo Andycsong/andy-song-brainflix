@@ -2,8 +2,6 @@ import './VideoList.scss';
 import React from 'react'
 
 function VideoList({ Videos, videoSelector }) {
-    console.log(Videos, videoSelector);
-
     return (
         <div>
             <nav className="vidList">
@@ -14,10 +12,10 @@ function VideoList({ Videos, videoSelector }) {
                         className="vidList__container"
                         onClick={() => { videoSelector(vid.id) }}
                     >
-                        <img className="vidList__img" src={vid.image}></img>
+                        <img className="vidList__img" src={vid.image} alt='poster of the video that is displayed'></img>
                         <div className="vidList__info-container">
                             <h3 className="vidList__title">{vid.title}</h3>
-                            <div>{vid.channel}</div>
+                            <div className="vidList__channel">{vid.channel}</div>
                         </div>
                     </div>
                 ))}

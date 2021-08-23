@@ -6,6 +6,7 @@ import Hero from './components/Hero/Hero';
 import Comments from './components/Comments/Comments'
 import { Component } from 'react';
 import VideoList from './components/VideoList/VideoList';
+import Videoplayer from './components/VideoPlayer/Videoplayer'
 
 class App extends Component {
   state = {
@@ -32,9 +33,16 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Hero hero={this.state.selectedVideo} />
-        <Comments commentsPosted={this.state.selectedVideo} />
-        <VideoList Videos={filteredVids} videoSelector={this.videoSelector} />
+        <Videoplayer videoPlayer={this.state.selectedVideo} />
+        <div className="App-container">
+          <div className="App__left-container">
+            <Hero hero={this.state.selectedVideo} />
+            <Comments commentsPosted={this.state.selectedVideo} />
+          </div>
+          <div className="App__right-container">
+            <VideoList Videos={filteredVids} videoSelector={this.videoSelector} />
+          </div>
+        </div>
       </div>
     );
 

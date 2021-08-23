@@ -1,0 +1,28 @@
+@use '../../partials/globals' as*;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+@use '../../partials/fonts' as*;
+
+
+
+.hero__video{
+    height: 183px;
+    object-fit: cover;
+    width: 100%;
+
+    @include tablet {
+        height: 25rem;
+        background-color: black;
+        padding-left: 2rem;
+        padding-right: 2rem;     
+    }
+
+    @include desktop{
+        object-fit: cover;
+        margin-left: auto;
+        margin-right: auto;
+        height: 540px;
+        padding-right: 168px;
+        padding-left: 168px;
+    }
+}

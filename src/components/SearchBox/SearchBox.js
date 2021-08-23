@@ -1,5 +1,4 @@
-
-
+import SearchImage from '../../assets/Icons/Icon-search.svg'
 
 const SearchBox = ({ placeholder, handleChange }) => (
     <input
@@ -7,6 +6,7 @@ const SearchBox = ({ placeholder, handleChange }) => (
         type='search'
         placeholder={placeholder}
         onChange={handleChange}
+        img={SearchImage}
     />
 );
 

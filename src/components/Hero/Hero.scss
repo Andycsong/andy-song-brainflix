@@ -7,37 +7,81 @@
 .hero{
     margin: 0;
 
-    &__video{
-        height: 183px;
-    }
-
     &__title{
         @include mobile-text-header;
         font-weight: 700;
         margin: 0;
         padding-top: 2rem;
         padding-bottom: 1rem;
+
+        @include tablet{
+            @include desktab-text-h1-header;
+            padding-top: 3rem;
+            padding-bottom: 1.5rem;
+        }
+
+        @include desktop{
+            padding-top: 40px;            
+        }
+
     }
 
     &-container{
         padding-left: 1rem;
         padding-right: 1rem;
+
+        @include tablet{
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        @include desktop{
+            margin-left: auto;
+            padding: 0;
+            width: 85%;
+        }
+
+    }
+
+    &__data-container{
+        border-bottom: 1px solid $Mercury;
+        @include tablet{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+        }
+
+        @include desktop{
+            padding-right: 2rem;
+        }
     }
 
     &__channel-container{
         display: flex;
+                
     }
+
 
     &__channel{
         @include mobile-text-subheader;
         font-weight: 600;
         padding-right: 0.5rem;
         margin: 0;
+
+        @include tablet{
+            @include desktab-text-subheader;
+        }
     }
 
     &__timestamp{
         @include mobile-text-subheader;
         color: $Silver;
+
+        @include tablet {
+            @include desktab-text-subheader;
+        }
     }
 
     &__view-container{
@@ -45,16 +89,25 @@
         display: flex;
         padding-top: 2rem;
         padding-bottom: 1.5rem;
-        border-bottom: 1px solid $Mercury;
+
+        @include tablet{
+            padding: 0;
+            @include desktab-text-paracomment;
+        }
     }
     
     &__view-icon{
         padding-right: 0.5rem;
+        vertical-align: text-top;
     }
 
     &__like-icon{
         padding-left: 1rem;
         padding-right: 0.5rem;
+
+        @include tablet{
+            padding-left: 1.5rem;
+        }
     }
 
     &__divider{
@@ -67,5 +120,12 @@
         padding-top: 1.5rem;
         padding-bottom: 2.5rem;
         margin: 0;
+
+        @include tablet{
+            padding-top: 2.5rem;
+            padding-bottom: 4rem;
+            width: 75%;
+            @include desktab-text-paracomment;
+        }
     }
 }
