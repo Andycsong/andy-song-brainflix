@@ -1,4 +1,5 @@
 import './VideoList.scss';
+import Home from '../../Pages/Home/Home'
 import React from 'react'
 
 function VideoList({ Videos, videoSelector }) {

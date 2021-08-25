@@ -2,11 +2,10 @@ import './App.scss';
 import Header from './components/Header/Header.js';
 import VideoDetails from "./Data/video-details.json"
 import Videos from "./Data/videos.json"
-import Hero from './components/Hero/Hero';
-import Comments from './components/Comments/Comments'
 import { Component } from 'react';
-import VideoList from './components/VideoList/VideoList';
-import Videoplayer from './components/VideoPlayer/Videoplayer'
+import Home from './Pages/Home/Home';
+import Upload from './Pages/Upload/Upload';
+import { Route, Link, BrowserRouter, Switch } from 'react-router-dom'
 
 class App extends Component {
   state = {
@@ -29,19 +28,20 @@ class App extends Component {
       (vid) => vid.id !== this.state.selectedVideo.id);
 
     return (
-      <div className="App">
+      <BrowserRouter>
         <Header />
-        <Videoplayer videoPlayer={this.state.selectedVideo} />
-        <div className="App-container">
-          <div className="App__left-container">
-            <Hero hero={this.state.selectedVideo} />
-            <Comments commentsPosted={this.state.selectedVideo} />
-          </div>
-          <div className="App__right-container">
-            <VideoList Videos={filteredVids} videoSelector={this.videoSelector} />
-          </div>
-        </div>
-      </div>
+        <Switch>
+          < Route path="/"
+            exact render={() =>
+              <Home
+                selectedVideo={this.state.selectedVideo}
+                filteredVids={filteredVids}
+                videoSelector={this.videoSelector}
+              />} />
+          < Route path="/upload" component={Upload} />
+        </Switch>
+
+      </BrowserRouter>
     );
   }
 }
