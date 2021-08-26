@@ -3,13 +3,12 @@ import './Videoplayer.scss'
 
 
 const Videoplayer = (props) => {
-    const selectedVideo = props.videoPlayer
     return (
         <div>
             <video controls
                 className="hero__video"
-                poster={selectedVideo.image}
-                src={selectedVideo.video}
+                poster={props.video}
+                src={props.image}
             >
             </video>
         </div>

@@ -3,8 +3,8 @@ import viewsIcon from '../../assets/Icons/Icon-views.svg'
 import likesIcon from '../../assets/Icons/Icon-likes.svg'
 import FormatDate from '../../utils/FormatDate'
 
-const Hero = (props) => {
-    const selectedVideo = props.hero;
+function Hero({ selectedVideo }) {
+    console.log(selectedVideo);
 
     return (
         <div>

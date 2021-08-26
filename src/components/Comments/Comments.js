@@ -3,8 +3,7 @@ import React from 'react'
 import FormatDate from '../../utils/FormatDate'
 import './Comments.scss'
 
-const Comments = (props) => {
-    const selectedVideo = props.commentsPosted;
+function Comments({ selectedVideo }) {
     return (
         <section>
             <article className='comments'>

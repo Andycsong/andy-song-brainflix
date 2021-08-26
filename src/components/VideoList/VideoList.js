@@ -2,12 +2,12 @@ import './VideoList.scss';
 import Home from '../../Pages/Home/Home'
 import React from 'react'
 
-function VideoList({ Videos, videoSelector }) {
+function VideoList({ videos, videoSelector }) {
     return (
         <div>
             <nav className="vidList">
                 <div className="vidList__subheader">NEXT VIDEO</div>
-                {Videos.map((vid) => (
+                {videos.map((vid) => (
                     <div
                         key={vid.id}
                         className="vidList__container"
