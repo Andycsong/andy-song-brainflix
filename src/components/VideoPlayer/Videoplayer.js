@@ -2,13 +2,13 @@ import React from 'react'
 import './Videoplayer.scss'
 
 
-const Videoplayer = (props) => {
+function Videoplayer({ selectedVideo }) {
     return (
         <div>
             <video controls
                 className="hero__video"
-                poster={props.video}
-                src={props.image}
+                poster={selectedVideo.image}
+                src={selectedVideo.video}
             >
             </video>
         </div>

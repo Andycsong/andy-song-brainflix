@@ -1,10 +1,9 @@
 import './Hero.scss'
 import viewsIcon from '../../assets/Icons/Icon-views.svg'
 import likesIcon from '../../assets/Icons/Icon-likes.svg'
-import FormatDate from '../../utils/FormatDate'
+import FormatDate from '../../utils/FormatDate.js'
 
 function Hero({ selectedVideo }) {
-    console.log(selectedVideo);
 
     return (
         <div>

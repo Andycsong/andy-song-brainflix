@@ -1,9 +1,10 @@
 import AvatarImage from '../../assets/Images/Mohan-muruge.jpg'
 import React from 'react'
-import FormatDate from '../../utils/FormatDate'
+import FormatDate from '../../utils/FormatDate.js'
 import './Comments.scss'
 
 function Comments({ selectedVideo }) {
+    console.log(selectedVideo);
     return (
         <section>
             <article className='comments'>

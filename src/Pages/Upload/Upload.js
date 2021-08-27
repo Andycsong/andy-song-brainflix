@@ -9,7 +9,7 @@ class Upload extends Component {
                 <h2 className="upload__title">Upload Video</h2>
                 <div className='upload__container'>
                     <h3 className='upload__thumbnail-title'>VIDEO THUMBNAIL</h3>
-                    <img className='upload__thumbnail-image' src={ThumbnailImage}></img>
+                    <img className='upload__thumbnail-image' alt='chosen thumbnail' src={ThumbnailImage}></img>
                 </div>
                 <div className='upload__info-container'>
                     <form className='upload__form' id='uploadForm'>
