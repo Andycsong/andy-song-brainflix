@@ -5,8 +5,7 @@ import Comments from '../../components/Comments/Comments'
 import { Component } from 'react';
 import VideoList from '../../components/VideoList/VideoList';
 import Videoplayer from '../../components/VideoPlayer/Videoplayer'
-import axios from 'axios';
-import { API_URL, API_KEY } from '../../utils/APIKey';
+import { API_CALLS } from '../../utils/API';
 
 
 class Home extends Component {
@@ -16,7 +15,7 @@ class Home extends Component {
     };
 
     getVideoId = (id) => {
-        axios.get(`${API_URL}/videos/${id}${API_KEY}`)
+        API_CALLS.getDetailedVideos(id)
             .then(
                 response => {
                     this.setState({
@@ -33,10 +32,9 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${API_URL}/videos/${API_KEY}`)
+        API_CALLS.getVideos()
             .then(
                 (response) => {
-                    console.log(response.data);
                     this.setState({
                         videoDetails: response.data,
                     })
@@ -46,14 +44,12 @@ class Home extends Component {
                 });
     }
 
-
     render() {
         if (!this.state.selectedVideo) {
             return <h2>gimme a chance boss</h2>;
         }
 
-        const filteredVids = this.state.videoDetails.filter(
-            vid => vid.id !== this.state.selectedVideo.id);
+        const filteredVids = this.state.videoDetails.filter(vid => vid.id !== this.state.selectedVideo.id);
 
         return (
             <div className="Home">
