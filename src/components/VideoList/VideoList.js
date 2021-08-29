@@ -11,7 +11,7 @@ function VideoList({ filteredVids }) {
                 <div className="vidList__subheader">NEXT VIDEO</div>
                 {filteredVids.map((vid) => {
                     return (
-                        <Link className="vidlist__click" key={vid.id} to={`/video/${vid.id}`}>
+                        <Link className="vidList__click" key={vid.id} to={`/video/${vid.id}`}>
                             <div className="vidList__container">
                                 <img className="vidList__img" src={vid.image} alt='poster of the video that is displayed'></img>
                                 <div className="vidList__info-container">

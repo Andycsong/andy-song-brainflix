@@ -16,12 +16,9 @@ class Home extends Component {
 
     getVideoId = (id) => {
         API_CALLS.getDetailedVideos(id)
-            .then(
-                response => {
-                    this.setState({
-                        selectedVideo: response.data,
-                    })
-                })
+            .then(response => {
+                this.setState({ selectedVideo: response.data, })
+            })
             .catch(error => console.log(error))
     }
 
@@ -33,20 +30,27 @@ class Home extends Component {
 
     componentDidMount() {
         API_CALLS.getVideos()
-            .then(
-                (response) => {
-                    this.setState({
-                        videoDetails: response.data,
-                    })
+            .then((response) => {
+                this.setState({
+                    videoDetails: response.data,
+                })
+                const id = this.props.match.params.id || response.data[0].id;
+                this.getVideoId(id);
+            });
+    }
 
-                    const id = this.props.match.params.id || response.data[0].id;
-                    this.getVideoId(id);
-                });
+
+    LoadingScreen = () => {
+        window.setTimeout(() => {
+            return (
+                <h2> Gimme a chance boss</h2 >
+            )
+        }, 1000)
     }
 
     render() {
         if (!this.state.selectedVideo) {
-            return <h2>gimme a chance boss</h2>;
+            return this.LoadingScreen;
         }
 
         const filteredVids = this.state.videoDetails.filter(vid => vid.id !== this.state.selectedVideo.id);

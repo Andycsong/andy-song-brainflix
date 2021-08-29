@@ -12,6 +12,10 @@
         padding-right: 2rem
     }
 
+    @include desktop{
+        border-left: 1px solid $Mercury;
+    }
+
     &__subheader{
         @include mobile-text-subheader;
         color:$Silver;
@@ -20,6 +24,11 @@
         @include tablet{
             @include desktab-text-subheader;
         }
+    }
+
+    &__click {
+        text-decoration: none;
+        color: $Black;
     }
 
     &__container{

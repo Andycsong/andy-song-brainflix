@@ -8,17 +8,3 @@ html{
     font-family: 'AvenirNextLTPro';
 }
 
-.App{
-
-    @include desktop{
-
-        
-        &-container{
-            display: flex;
-        }
-        
-        &__left-container{
-            width: 75%;
-        }
-    }
-}
