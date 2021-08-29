@@ -8,6 +8,7 @@ import Videoplayer from '../../components/VideoPlayer/Videoplayer'
 import { API_CALLS } from '../../utils/API';
 
 
+
 class Home extends Component {
     state = {
         videoDetails: {},
@@ -47,6 +48,17 @@ class Home extends Component {
             )
         }, 1000)
     }
+
+    // postComments = (submit) => {
+    //     const comment = {
+    //         name: 'BrainStation Man'
+    //         comment:submit.
+    //     }
+    //     API_CALLS.postComments(comment)
+    //         .then((response) => {
+    //             console.log(response);
+    //         })
+    // }
 
     render() {
         if (!this.state.selectedVideo) {

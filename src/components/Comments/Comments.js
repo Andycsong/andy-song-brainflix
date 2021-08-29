@@ -2,8 +2,32 @@ import AvatarImage from '../../assets/Images/Mohan-muruge.jpg'
 import React from 'react'
 import FormatDate from '../../utils/FormatDate.js'
 import './Comments.scss'
+import { API_URL, API_KEY } from '../../utils/API'
+import axios from 'axios'
 
 function Comments({ selectedVideo }) {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const id = selectedVideo.id
+        const commentName = event.target.commentName.value;
+
+        axios.post(`${API_URL}/videos/${id}/comments${API_KEY}`, {
+            name: 'BrainStation Man',
+            comment: commentName
+        })
+            .then((response) => {
+                console.log(response);
+            })
+
+        // API_CALLS.postComments(commentName)
+        //     .then((response) => {
+        //         console.log(response)
+        //     })
+
+
+    }
+
     console.log(selectedVideo);
     return (
         <section>
@@ -11,7 +35,7 @@ function Comments({ selectedVideo }) {
                 <h3 className='comments__title'>{selectedVideo.comments.length + ' Comments'}</h3>
                 <div className='comments__form-container'>
                     <img src={AvatarImage} className="comments__avatar" alt='Avatar for User'></img>
-                    <form className='comments__form' id='commentsForm'>
+                    <form className='comments__form' id='commentsForm' onSubmit={handleSubmit}>
                         <label for='commentsForm' className='comments__form-name'>JOIN THE CONVERSATION</label>
                         <div className='comments__data-container'>
 
