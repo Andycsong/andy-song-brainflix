@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const API_URL = 'https://project-2-api.herokuapp.com'
-export const API_KEY = "?api_key=0fc5633c-00c2-4ab2-9753-e619f65b9bbc"
+export const API_KEY = "?api_key=04c2a75c-f8b6-459d-a765-7672191d3de8"
 
 
 export const API_CALLS = {

@@ -2,33 +2,9 @@ import AvatarImage from '../../assets/Images/Mohan-muruge.jpg'
 import React from 'react'
 import FormatDate from '../../utils/FormatDate.js'
 import './Comments.scss'
-import { API_URL, API_KEY } from '../../utils/API'
-import axios from 'axios'
 
-function Comments({ selectedVideo }) {
-    const handleSubmit = (event) => {
-        event.preventDefault();
+const Comments = ({ selectedVideo, handleClick, handleSubmit }) => {
 
-        const id = selectedVideo.id
-        const commentName = event.target.commentName.value;
-
-        axios.post(`${API_URL}/videos/${id}/comments${API_KEY}`, {
-            name: 'BrainStation Man',
-            comment: commentName
-        })
-            .then((response) => {
-                console.log(response);
-            })
-
-        // API_CALLS.postComments(commentName)
-        //     .then((response) => {
-        //         console.log(response)
-        //     })
-
-
-    }
-
-    console.log(selectedVideo);
     return (
         <section>
             <article className='comments'>
@@ -36,14 +12,13 @@ function Comments({ selectedVideo }) {
                 <div className='comments__form-container'>
                     <img src={AvatarImage} className="comments__avatar" alt='Avatar for User'></img>
                     <form className='comments__form' id='commentsForm' onSubmit={handleSubmit}>
-                        <label for='commentsForm' className='comments__form-name'>JOIN THE CONVERSATION</label>
+                        <label htmlFor='commentsForm' className='comments__form-name'>JOIN THE CONVERSATION</label>
                         <div className='comments__data-container'>
 
                             <textarea
                                 form='commentsForm'
                                 className='comments__form-input'
-                                type='text'
-                                name='commentName'
+                                name='commentForm'
                                 placeholder='Add a comment'
                             >
                             </textarea>
@@ -53,21 +28,24 @@ function Comments({ selectedVideo }) {
                 </div>
             </article>
             <article className='display-comments'>
-                {selectedVideo.comments.map(comment => (
-                    <div className='display-comments__card'>
-                        <div className='display-comments__image'></div>
-                        <div className='display-comments__info-container'>
-                            <div className='display-comments__container'>
-                                <h3 className="display-comments__name">{comment.name}</h3>
-                                <div className='display-comments__date'>{FormatDate(comment.timestamp)}</div>
+                {selectedVideo.comments.sort((initial, newNew) => { return newNew.timestamp - initial.timestamp })
+                    .map(comment => (
+                        <div className='display-comments__card'>
+                            <div className='display-comments__image'></div>
+                            <div className='display-comments__info-container'>
+                                <div className='display-comments__container'>
+                                    <h3 className="display-comments__name">{comment.name}</h3>
+                                    <div className='display-comments__date'>{FormatDate(comment.timestamp)}</div>
+                                </div>
+                                <p className='display-comments__comment'>{comment.comment}</p>
+                                <button className='display-comments__delete' onClick={() => handleClick(comment.id)}>Delete</button>
                             </div>
-                            <p className='display-comments__comment'>{comment.comment}</p>
                         </div>
-                    </div>
-                ))}
+                    ))}
             </article >
         </section >
     );
+
 }
 
 export default Comments;

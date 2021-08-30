@@ -3,7 +3,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function VideoList({ filteredVids }) {
-    console.log(filteredVids);
     return (
 
         <div>
