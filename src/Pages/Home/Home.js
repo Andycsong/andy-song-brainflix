@@ -86,8 +86,6 @@ class Home extends Component {
             })
     }
 
-
-
     render() {
         if (!this.state.selectedVideo) {
             return this.LoadingScreen;
