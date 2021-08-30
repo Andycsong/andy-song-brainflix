@@ -35,10 +35,12 @@ const Comments = ({ selectedVideo, handleClick, handleSubmit }) => {
                             <div className='display-comments__info-container'>
                                 <div className='display-comments__container'>
                                     <h3 className="display-comments__name">{comment.name}</h3>
-                                    <div className='display-comments__date'>{FormatDate(comment.timestamp)}</div>
+                                    <div className='display-comments__timedelete'>
+                                        <div className='display-comments__date'>{FormatDate(comment.timestamp)}</div>
+                                        <button className='display-comments__delete' onClick={() => handleClick(comment.id)}>Delete</button>
+                                    </div>
                                 </div>
                                 <p className='display-comments__comment'>{comment.comment}</p>
-                                <button className='display-comments__delete' onClick={() => handleClick(comment.id)}>Delete</button>
                             </div>
                         </div>
                     ))}

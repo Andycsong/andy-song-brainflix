@@ -16,13 +16,42 @@
         padding-right: 1.5rem;
     }
 
+    @include desktop{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     &__title{
+        @include mobile-text-header;
         padding-bottom: 2rem;
 
         @include tablet{
+            @include desktab-text-h1-header;
             padding-top: 3rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid $Mercury;
+        }
+
+        @include desktop{
+      
+            margin-left: auto;
+            margin-right:auto;
+            width: 80%;
+        }
+    }
+
+    &__desktop-container{
+        @include desktop{
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+    }
+
+    &__container{
+        @include desktop{
+            padding-right: 1.5rem;
         }
     }
 
@@ -32,7 +61,6 @@
         font-weight: 600;
 
         @include tablet{
-            @include desktab-text-subheader;
             padding-top: 2.5rem;
 
         }
@@ -46,10 +74,19 @@
             width: 344px;
             height: 183px;
         }
+        @include desktop{
+            height: 200px;
+        }
     }
 
     &__info-container{
         padding-top: 2.5rem;
+
+        @include desktop{
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
     }
 
     &__info-title{
@@ -57,10 +94,7 @@
         color: $Silver;
         font-weight: 600;
 
-        @include tablet{
-            @include desktab-text-subheader;
 
-        }
     }
 
 
@@ -94,9 +128,6 @@
         color: $Silver;
         font-weight: 600;
 
-        @include tablet{
-            @include desktab-text-subheader;
-        }
     }
     
 
@@ -122,6 +153,10 @@
         &:focus{
             outline: none;
             border: 2px solid $Instock-blue;
+        }
+
+        @include desktop{
+            height: 94px;
         }
 
     }

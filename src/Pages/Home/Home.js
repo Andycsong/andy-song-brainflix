@@ -17,8 +17,6 @@ class Home extends Component {
         selectedVideo: null,
     };
 
-
-
     getVideoId = (id) => {
         API_CALLS.getDetailedVideos(id)
             .then(response => {
@@ -44,7 +42,6 @@ class Home extends Component {
             });
     }
 
-
     LoadingScreen = () => {
         window.setTimeout(() => {
             return (
@@ -65,8 +62,7 @@ class Home extends Component {
             .then((response) => {
                 this.setState({
                     selectedVideo: {
-                        ...this.state.selectedVideo,
-                        comments: [response.data, ...this.state.selectedVideo.comments]
+                        ...this.state.selectedVideo, comments: [response.data, ...this.state.selectedVideo.comments]
                     }
                 })
             })

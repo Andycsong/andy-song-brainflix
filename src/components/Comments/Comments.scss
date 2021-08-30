@@ -198,7 +198,7 @@
 
         @include tablet{
             padding-top: 1rem;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
         }
     }
@@ -220,6 +220,7 @@
 
         @include tablet{
             @include desktab-text-paracomment;
+            padding-right: 1rem;
         }
     }
 
@@ -231,6 +232,29 @@
             width: 95%;
             @include desktab-text-paracomment;
             padding-bottom: 24px;
+        }
+    }
+
+    &__timedelete{
+        display: flex;
+        align-items: center;
+
+    }
+
+    &__delete{
+        @include mobile-text-paragraph;
+        color: white;
+        border: white;
+        background-color: $Instock-blue;
+        border-radius: 4px;
+
+        @include tablet{
+            @include desktab-text-paracomment;
+            margin-right: 40px;
+        }
+
+        @include desktop{
+            margin-right: 1rem;
         }
     }
 }

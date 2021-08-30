@@ -8,6 +8,5 @@ export const API_CALLS = {
 
     getVideos: () => axios.get(`${API_URL}/videos/${API_KEY}`),
     getDetailedVideos: (id) => axios.get(`${API_URL}/videos/${id}${API_KEY}`),
-    // postComments: (id, commentName) => axios.post(`${API_URL}/videos/${id}/comments${API_KEY}`, commentName)
 }
 
