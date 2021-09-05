@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './Upload.scss'
 import ThumbnailImage from '../../assets/Images/Upload-video-preview.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { API_URL, API_END_POINT, PORT } from '../../utils/API';
 
 class Upload extends Component {
     state = {
@@ -31,11 +33,19 @@ class Upload extends Component {
     submit = (e) => {
         e.preventDefault();
         if (this.isValidated()) {
-            alert(`Your video : ${this.state.title} has been uploaded. Press OK to go back to Home page `);
-
-            window.setTimeout(() => {
-                this.props.history.push('/')
-            }, 500)
+            axios.post(`${API_URL}${PORT}${API_END_POINT}`, {
+                title: this.state.title,
+                "description": this.state.description,
+                "video": 'https://project-2-api.herokuapp.com/stream',
+                "timestamp": Date.now(),
+            })
+                .then(res => {
+                    window.setTimeout(() => {
+                        alert(`Your video : ${this.state.title} has been uploaded. Press OK to go back to Home page `);
+                        this.props.history.push('/')
+                    }, 500)
+                })
+                .catch(err => console.log(err))
 
         } else {
             alert("Failed to upload video. Check if your form has been completed")

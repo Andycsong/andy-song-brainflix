@@ -41,19 +41,20 @@ router.get('/:id', (req, res) => {
 
 router.post("/", (req, res) => {
     const videos = readVideosFile();
+    const imageGenerator = Math.floor(Math.random() * 9);
 
     const newVideo = {
         id: uniqid(),
         title: req.body.title,
-        channel: "BrainSchool",
-        image: "image",
-        description: req.body.description,
-        views: "999999",
-        likes: "333333",
-        duration: "4:20",
-        video: "video ",
-        timestamp: Date.now(),
-        comments: []
+        "channel": 'BrainSchool',
+        "image": (`http://localhost:8080/images/image${imageGenerator}.jpeg`),
+        "description": req.body.description,
+        "views": "999999",
+        "likes": "333333",
+        "duration": '4:20',
+        "video": req.body.video,
+        "timestamp": req.body.timestamp,
+        "comments": []
     }
 
     videos.push(newVideo)

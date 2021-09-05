@@ -5,9 +5,8 @@ import Comments from '../../components/Comments/Comments'
 import { Component } from 'react';
 import VideoList from '../../components/VideoList/VideoList';
 import Videoplayer from '../../components/VideoPlayer/Videoplayer'
-import { API_CALLS, API_URL, API_KEY } from '../../utils/API';
+import { API_URL, API_END_POINT, API_CALLS, PORT } from '../../utils/API';
 import axios from 'axios';
-
 
 
 class Home extends Component {
@@ -16,6 +15,7 @@ class Home extends Component {
         videoDetails: {},
         selectedVideo: null,
     };
+
 
     getVideoId = (id) => {
         API_CALLS.getDetailedVideos(id)
@@ -44,7 +44,7 @@ class Home extends Component {
 
     LoadingScreen = () => {
         window.setTimeout(() => {
-            return (
+            (
                 <h2> Gimme a chance boss</h2 >
             )
         }, 1000)
@@ -55,9 +55,9 @@ class Home extends Component {
         const userComment = event.target.commentForm.value
         const id = this.state.selectedVideo.id
 
-        axios.post(`${API_URL}/videos/${id}/comments${API_KEY}`, {
-            name: 'BrainStation Man',
-            comment: userComment
+        axios.post(`${API_URL}${PORT}${API_END_POINT}/${id}/comments`, {
+            'name': 'BrainStation Man',
+            'comment': userComment,
         })
             .then((response) => {
                 this.setState({
@@ -77,7 +77,7 @@ class Home extends Component {
     handleClick = (commentId) => {
         const { id } = this.state.selectedVideo
 
-        axios.delete(`${API_URL}/videos/${id}/comments/${commentId}${API_KEY}`)
+        axios.delete(`${API_URL}${PORT}${API_END_POINT}/${id}/comments/${commentId}`)
             .then(response => {
                 this.getVideoId(id)
             })
