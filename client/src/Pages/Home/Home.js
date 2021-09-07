@@ -5,17 +5,14 @@ import Comments from '../../components/Comments/Comments'
 import { Component } from 'react';
 import VideoList from '../../components/VideoList/VideoList';
 import Videoplayer from '../../components/VideoPlayer/Videoplayer'
-import { API_URL, API_END_POINT, API_CALLS, PORT } from '../../utils/API';
-import axios from 'axios';
+import { API_CALLS, } from '../../utils/API';
 
 
 class Home extends Component {
-
     state = {
         videoDetails: {},
         selectedVideo: null,
     };
-
 
     getVideoId = (id) => {
         API_CALLS.getDetailedVideos(id)
@@ -42,23 +39,15 @@ class Home extends Component {
             });
     }
 
-    LoadingScreen = () => {
-        window.setTimeout(() => {
-            (
-                <h2> Gimme a chance boss</h2 >
-            )
-        }, 1000)
-    }
-
     handleSubmit = (event) => {
         event.preventDefault();
         const userComment = event.target.commentForm.value
         const id = this.state.selectedVideo.id
-
-        axios.post(`${API_URL}${PORT}${API_END_POINT}/${id}/comments`, {
+        const comment = {
             'name': 'BrainStation Man',
             'comment': userComment,
-        })
+        }
+        API_CALLS.postComments(id, comment)
             .then((response) => {
                 this.setState({
                     selectedVideo: {
@@ -72,12 +61,10 @@ class Home extends Component {
         event.target.reset()
     }
 
-
-
     handleClick = (commentId) => {
-        const { id } = this.state.selectedVideo
-
-        axios.delete(`${API_URL}${PORT}${API_END_POINT}/${id}/comments/${commentId}`)
+        const id = this.state.selectedVideo.id
+        // axios.delete(`${API_URL}${PORT}${API_END_POINT}/${id}/comments/${commentId}`)
+        API_CALLS.deleteComments(id, commentId)
             .then(response => {
                 this.getVideoId(id)
             })
@@ -88,7 +75,9 @@ class Home extends Component {
 
     render() {
         if (!this.state.selectedVideo) {
-            return this.LoadingScreen;
+            return window.setTimeout(() => {
+                <h2>Gimme a chance boss</h2>
+            }, 100)
         }
 
         const filteredVids = this.state.videoDetails.filter(vid => vid.id !== this.state.selectedVideo.id);

@@ -21,10 +21,7 @@ class Upload extends Component {
     };
 
     isValidated = () => {
-        if (
-            !this.state.title ||
-            !this.state.description
-        ) {
+        if (!this.state.title || !this.state.description) {
             return false;
         }
         return true;
@@ -46,11 +43,9 @@ class Upload extends Component {
                     }, 500)
                 })
                 .catch(err => console.log(err))
-
         } else {
             alert("Failed to upload video. Check if your form has been completed")
         }
-
     };
 
     cancel = (e) => {
@@ -60,7 +55,6 @@ class Upload extends Component {
             description: ''
         })
     }
-
 
     render() {
         return (
@@ -73,7 +67,7 @@ class Upload extends Component {
                     </div>
                     <div className='upload__info-container'>
                         <form className='upload__form' id='uploadForm' onSubmit={this.submit}>
-                            <label for='uploadForm' className='upload__info-title'>TITLE YOUR VIDEO
+                            <label htmlFor='uploadForm' className='upload__info-title'>TITLE YOUR VIDEO
                                 <input
                                     id='uploadForm-name'
                                     className='upload__form-name'

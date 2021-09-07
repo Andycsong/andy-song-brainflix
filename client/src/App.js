@@ -12,9 +12,9 @@ class App extends Component {
       <BrowserRouter>
         <Header />
         <Switch>
-          < Route path="/" exact component={Home} />
+          < Route exact path="/" component={Home} />
           < Route path="/upload" exact component={Upload} />
-          <Route path='/video/:id' exact component={Home} />
+          <Route path='/:id' component={Home} />
         </Switch>
 
       </BrowserRouter>

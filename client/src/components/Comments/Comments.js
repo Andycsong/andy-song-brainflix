@@ -30,7 +30,7 @@ const Comments = ({ selectedVideo, handleClick, handleSubmit }) => {
             <article className='display-comments'>
                 {selectedVideo.comments.sort((initial, newNew) => { return newNew.timestamp - initial.timestamp })
                     .map(comment => (
-                        <div className='display-comments__card'>
+                        <div className='display-comments__card' key={comment.id}>
                             <div className='display-comments__image'></div>
                             <div className='display-comments__info-container'>
                                 <div className='display-comments__container'>

@@ -19,5 +19,6 @@ export const API_CALLS = {
 
     getVideos: () => axios.get(`${API_URL}${PORT}${API_END_POINT}`),
     getDetailedVideos: (id) => axios.get(`${API_URL}${PORT}${API_END_POINT}/${id}`),
+    postComments: (id, comment) => axios.post(`${API_URL}${PORT}${API_END_POINT}/${id}/comments`, comment),
+    deleteComments: (id, commentId) => axios.delete(`${API_URL}${PORT}${API_END_POINT}/${id}/comments/${commentId}`)
 }
-

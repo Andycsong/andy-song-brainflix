@@ -10,14 +10,6 @@ router.post('/:id/comments', (req, res) => {
     const id = req.params.id
     const selectedVideo = videosFile.find(vid => vid.id === id)
 
-    // if (!selectedVideo) {
-    //     return res.status(404).send('Not found')
-    // }
-
-    // if (!req.body.content) {
-    //     return res.status(400).send("Fill out the comment field")
-    // }
-
     const postComment = {
         "id": uniqid(),
         "timestamp": Date.now(),
@@ -31,43 +23,36 @@ router.post('/:id/comments', (req, res) => {
             return comment = selectedVideo
         }
     })
-    fs.writeFile(__dirname + '/../data/video-details.json', JSON.stringify(videosFile, null, 2), (err) => {
-        if (err) {
-            console.log(err);
-        } else {
+    fs.writeFile(`${videosFile}`, JSON.stringify(videosFile), (err) => {
+        try {
             res.status(201).send(postComment)
+        } catch (error) {
+            console.log(error);
         }
     })
 })
-
 
 router.delete('/:id/comments/:commentId', (req, res) => {
     const id = req.params.id
     const commentId = req.params.commentId
-    // const selectedVideo = videosFile.find(vid => vid.id === id)
-    const selectedVideo = videosFile.findIndex(vid => vid.id === id)
-    // const selectedComment = selectedVideo.comments.find(comment => comment.id === commentId)
-    const commentsIndexed = videosFile.findIndex(comment => comment.id === commentId)
+    const selectedVideo = videosFile.find(vid => vid.id === id)
+    const comments = selectedVideo.comments.find(comment => comment.id === commentId)
+    const indexOfComment = selectedVideo.comments.indexOf(comments)
 
-    if (!commentId || !id || commentsIndexed === -1) {
-        return res.status(404).json('Comment was not found')
-    }
-    const deletedComment = selectedVideo.splice(commentsIndexed, 1)
+    selectedVideo.comments.splice(indexOfComment, 1)
     videosFile.map(comment => {
         if (comment.id === selectedVideo.id) {
-            return comment = selectedVideo
+            return comment - selectedVideo
         }
     })
-    fs.writeFile(__dirname + '/../data/video-details.json', JSON.stringify(videosFile, null, 2), (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.status(201).send(deletedComment)
+    fs.writeFile(`${videosFile}`, JSON.stringify(videosFile), (err) => {
+        try {
+            res.status(200).send(comments)
+        } catch (error) {
+            console.log(error);
         }
     })
-
 
 })
-
 
 module.exports = router;
