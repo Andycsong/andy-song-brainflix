@@ -63,7 +63,6 @@ class Home extends Component {
 
     handleClick = (commentId) => {
         const id = this.state.selectedVideo.id
-        // axios.delete(`${API_URL}${PORT}${API_END_POINT}/${id}/comments/${commentId}`)
         API_CALLS.deleteComments(id, commentId)
             .then(response => {
                 this.getVideoId(id)

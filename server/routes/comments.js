@@ -4,9 +4,9 @@ const fs = require('fs');
 const uniqid = require('uniqid');
 
 const videosFile = require('../data/video-details.json');
+const fsDirectory = './data/video-details.json'
 
 router.post('/:id/comments', (req, res) => {
-    // const videos = readVideosFile();
     const id = req.params.id
     const selectedVideo = videosFile.find(vid => vid.id === id)
 
@@ -16,18 +16,17 @@ router.post('/:id/comments', (req, res) => {
         "name": req.body.name,
         "comment": req.body.comment
     }
-
     selectedVideo.comments.push(postComment)
     videosFile.map(comment => {
         if (comment.id === selectedVideo.id) {
             return comment = selectedVideo
         }
     })
-    fs.writeFile(`${videosFile}`, JSON.stringify(videosFile), (err) => {
-        try {
+    fs.writeFile(`${fsDirectory}`, JSON.stringify(videosFile), (err) => {
+        if (err)
+            console.log(err);
+        else {
             res.status(201).send(postComment)
-        } catch (error) {
-            console.log(error);
         }
     })
 })
@@ -42,14 +41,14 @@ router.delete('/:id/comments/:commentId', (req, res) => {
     selectedVideo.comments.splice(indexOfComment, 1)
     videosFile.map(comment => {
         if (comment.id === selectedVideo.id) {
-            return comment - selectedVideo
+            return comment = selectedVideo
         }
     })
-    fs.writeFile(`${videosFile}`, JSON.stringify(videosFile), (err) => {
-        try {
+    fs.writeFile(`${fsDirectory}`, JSON.stringify(videosFile), (err) => {
+        if (err)
+            console.log(err);
+        else {
             res.status(200).send(comments)
-        } catch (error) {
-            console.log(error);
         }
     })
 
