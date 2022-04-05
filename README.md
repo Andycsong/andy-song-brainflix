@@ -11,4 +11,4 @@ Responsive website with functionality such as a video selector, comments, and vi
 * SASS
 * Express.js 
 * Node.js 
-* 
+* REST API 
